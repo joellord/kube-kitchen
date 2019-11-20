@@ -1,0 +1,57 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+
+.diorama-footer {
+  background: #ffffffaa;
+  height: 7rem;
+}
+
+.diorama-footer-left {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  padding: 0 0 0 3rem;
+  background: transparent url("assets/twitter.png") 0 0.5rem no-repeat;
+  background-size: 2rem;
+  box-shadow: none;
+  color: #1b2b34;
+  font-weight: 700;
+  text-decoration: none;
+  word-spacing: 1em;
+  font-family: monospace;
+}
+
+.diorama-footer-right {
+  position: fixed;
+  bottom: 2rem;
+  right: 0rem;
+  padding: 1rem 0rem 0rem 12rem;
+  background: transparent url("assets/openshift.png") 0 0 no-repeat;
+  background-size: 10rem;
+  box-shadow: none;
+}
+
+.smallerText {
+  font-size: 2vw;
+  line-height: 1.3vw;
+}

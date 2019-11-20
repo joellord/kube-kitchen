@@ -1,0 +1,25 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: pastry-cronjob
+  labels: 
+    app: kube-kitchen
+    section: kitchen
+    job: pastry
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          volumes:
+          - name: pastry-fridge
+            persistentVolumeClaim:
+              claimName: fridge-pvc
+          containers:
+          - name: pastry
+            image: joellord/kk-pastry:latest
+            volumeMounts:
+            - mountPath: "/desserts"
+              name: pastry-fridge
+          restartPolicy: OnFailure

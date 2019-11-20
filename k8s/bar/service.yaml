@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: bar-service
+  labels:
+    app: kube-kitchen
+    section: bar
+spec:
+  type: NodePort
+  selector:
+    job: barman
+  ports:
+  - port: 3000
+    nodePort: 31300

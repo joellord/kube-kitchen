@@ -1,0 +1,11 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: front-ingress
+  labels:
+    app: kube-kitchen
+    secttion: front
+spec:
+  backend:
+    serviceName: front-service
+    servicePort: 80

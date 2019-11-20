@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: front-deployment
+  labels:
+    app: kube-kitchen
+    job: maitred
+    section: front
+spec:
+  replicas: 3
+  selector: 
+    matchLabels:
+      job: waiter
+  template:
+    metadata: 
+      labels:
+        app: kube-kitchen
+        section: front
+        job: waiter
+    spec:
+      containers:
+      - name: front
+        image: joellord/kk-front:latest
+        ports: 
+        - containerPort: 80

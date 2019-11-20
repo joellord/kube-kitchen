@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: chef-service
+  labels:
+    app: kube-kitchen
+    section: kitchen
+spec:
+  type: NodePort
+  selector:
+    job: chef
+  ports:
+  - port: 3000
+    nodePort: 32300

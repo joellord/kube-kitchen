@@ -37,7 +37,7 @@ import ImgStaff2 from "./assets/staff2.jpg";
 import ImgDiagram1 from "./assets/diagram1.png";
 import ImgDiagram2 from "./assets/diagram2.png";
 
-const SHOW_NOTES = false;
+const SHOW_NOTES = true;
 const BROWSER_URL = "http://192.168.39.247";
 
 const talkProps = {
@@ -597,6 +597,9 @@ spec:
       <Slide notes="
       kubectl apply -f ./bar/deployment.yaml;
       kubectl apply -f ./bar/service.yaml;
+      kubectl get all pods -l job=bar;
+      kubectl delete pod XXX;
+      kubectl get all pods -l job=bar;
       kubectl get all -l sec;
       Look at the public IP;
       ">
@@ -792,6 +795,45 @@ const COOK_URL = \`http://\${HOST}:\${PORT}\`;
         {`
 apiVersion: batch/v1beta1
 kind: CronJob
+        `}
+      </CodeSlide>
+
+      <CodeSlide title="Cron Jobs" lang="yaml" notes="
+      Emphasis on the schedule part of the spec
+      ">
+        {`
+metadata:
+  name: pastry-cronjob
+  labels: 
+    app: kube-kitchen
+    section: kitchen
+    job: pastry
+        `}
+      </CodeSlide>
+
+      <CodeSlide title="Cron Jobs" lang="yaml" notes="
+      Emphasis on the schedule part of the spec
+      ">
+        {`
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: pastry
+            image: joellord/kk-pastry:latest
+          restartPolicy: OnFailure
+        `}
+      </CodeSlide>
+
+      <CodeSlide title="Cron Jobs" lang="yaml" notes="
+      Emphasis on the schedule part of the spec
+      ">
+        {`
+apiVersion: batch/v1beta1
+kind: CronJob
 metadata:
   name: pastry-cronjob
   labels: 
@@ -946,6 +988,11 @@ spec:
           <li>kubectl exec -it &lt;object-name&gt; -- /bin/bash</li>
           <li></li>
         </List>
+      </Slide>
+
+      <Slide>
+        <Title>Moar K8s!</Title>
+        <XTerm />
       </Slide>
 
       <Slide notes="

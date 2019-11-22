@@ -2,12 +2,6 @@ const http = require("http");
 
 const PORT = process.env.PORT || 3000;
 
-let interval = setInterval(() => {
-  if (!!Math.round(Math.random())) {
-    throw "Barman disappeared";
-  }
-}, 60000)
-
 http.createServer((req, res) => {
   res.writeHead(200, {"Content-Type": "text/html"});
   let url = req.url;

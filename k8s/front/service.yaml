@@ -5,6 +5,7 @@ metadata:
   labels:
     app: kube-kitchen
     section: front
+    description: maitre-d
 spec:
   selector:
     job: waiter

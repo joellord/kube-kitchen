@@ -30,6 +30,7 @@ metadata:
   labels:
     app: kube-kitchen
     section: kitchen
+    description: pass
 spec:
   type: NodePort
   selector:

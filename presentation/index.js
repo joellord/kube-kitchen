@@ -3,6 +3,8 @@ const expressWs = require("express-ws");
 const path = require("path");
 const pty = require("node-pty");
 const os = require("os");
+const exec = require("child_process").exec;
+const api = require("./api");
 
 const app = express();
 const ws = expressWs(app);
@@ -26,6 +28,13 @@ app.get("/health", (req, res) => {
   res.send("Feeling good").status(200);
 });
 
+app.get("/minikubeIp", (req, response) => {
+  exec("minikube ip", (err, stdout, stdin) => {
+    let ip = stdout.replace("\n", "");
+    response.send({ip}).status(200);
+  });
+});
+
 ws.app.ws("/shell", (ws, req) => {
   ptyProcess.on("data", data => {
     try {
@@ -38,6 +47,10 @@ ws.app.ws("/shell", (ws, req) => {
   ws.on("message", msg => {
     ptyProcess.write(msg);
   });
+});
+
+app.get("/system", (req, res) => {
+  api().then(snap => res.send(snap).status(200));
 });
 
 app.get('*', (req,res) =>{

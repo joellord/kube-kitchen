@@ -1,4 +1,5 @@
 #! /bin/bash
+minikube addons enable ingress
 kubectl apply -f ./front/deployment.yaml
 kubectl apply -f ./front/service.yaml
 kubectl apply -f ./front/ingress.yaml

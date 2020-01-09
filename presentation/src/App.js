@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {Deck, Slide, Footer, Title, List, Image, Text, Subtitle, Browser} from "@sambego/diorama";
 import './App.css';
 import ImageWithTitle from './components/ImageWithTitle';
@@ -8,6 +8,7 @@ import { XTerm } from "./components/XTerm";
 
 import About from "./slides/About";
 import ThankYou from "./slides/ThankYou";
+import Architecture from "./slides/Architecture";
 
 import ImgKitchenLaptop from "./assets/kitchen-laptop.jpg";
 import ImgRamsay from "./assets/ramsay-hells-kitchen.jpg";
@@ -34,21 +35,26 @@ import ImgAngryChef from "./assets/angrychef.jpg";
 import ImgPastryChef from "./assets/pastrychef.jpg";
 import ImgFridge from "./assets/fridge.jpg";
 import ImgStaff2 from "./assets/staff2.jpg";
-import ImgDiagram1 from "./assets/diagram1.png";
-import ImgDiagram2 from "./assets/diagram2.png";
 
 const SHOW_NOTES = true;
-const BROWSER_URL = "http://192.168.39.247";
 
 const talkProps = {
-  title: "Kubernetes Hell's Kitchen",
-  conference: "Boston Code Camp",
-  conferenceHashTag: "#BosCC",
+  title: "Kube Kitchen",
+  conference: "JS and Friends",
+  conferenceHashTag: "#event",
   date: "November 23, 2019",
-  moreInfoUrl: "ezurl.to/k8s"
+  moreInfoUrl: "ezurl.to/kube-kitchen"
 }
 
 function App() {
+  const [browserUrl, setBrowserUrl] = useState("");
+
+  useEffect(() => {
+    fetch("/minikubeIp").then(resp => resp.json()).then(resp => {
+      setBrowserUrl(`http://${resp.ip}`);
+    });
+  });
+
   const footer = <Footer left={`@joel__lord ${talkProps.conferenceHashTag}`} right="&nbsp;" />
 
   return (
@@ -362,6 +368,8 @@ spec:
         <XTerm />
       </Slide>
 
+      <Architecture />
+
       <Slide notes="
       Our Maitre D now has three waiters on the floor.
       But right now, there is no way to find the waiters. You don't know if it's John or Simone who are working tonight.
@@ -513,8 +521,10 @@ spec:
         <XTerm />
       </Slide>
 
+      <Architecture />
+
       <Slide>
-        <Browser url={BROWSER_URL}></Browser>
+        <Browser url={browserUrl}></Browser>
       </Slide>
 
       <Slide notes="
@@ -607,8 +617,10 @@ spec:
         <XTerm />
       </Slide>
 
+      <Architecture />
+
       <Slide>
-        <Browser url={BROWSER_URL}></Browser>
+        <Browser url={browserUrl}></Browser>
       </Slide>
 
       <Slide notes="
@@ -675,6 +687,8 @@ spec:
         <Title>Cook Service and Deployment</Title>
         <XTerm />
       </Slide>
+
+      <Architecture />
 
       <Slide notes="
       This brings us to our chef. There is normally only one. The chef will dispatch the orders to the cooks and then take all the elements to do the finaly assembly.
@@ -745,11 +759,13 @@ spec:
         <XTerm />
       </Slide>
 
+      <Architecture />
+
       <Slide notes="
       Now that we have a chef and some cooks, we should be able to order some food.
       Notice how the food is prepared by different cooks.
       ">
-        <Browser url={BROWSER_URL} />
+        <Browser url={browserUrl} />
       </Slide>
 
       <CodeSlide title="Environment Variables" lang="js" notes="
@@ -763,14 +779,11 @@ const COOK_URL = \`http://\${HOST}:\${PORT}\`;
         `}
       </CodeSlide>
 
-      <Slide notes="
+      <Architecture notes="
       So we now have this whole architecture. 
       All the networking is done, and if something breaks, it gets automatically repaired.
       But we can do more stuff with K8s
-      ">
-        <Title>Architecture</Title>
-        <Image src={ImgDiagram1} />
-      </Slide>
+      " />
 
       <Slide notes="
       But not everything acts like a server. Our pastry chef is an example of such sort.
@@ -940,13 +953,10 @@ spec:
 
       <Slide>
         <Title>Full Application</Title>
-        <Browser url={BROWSER_URL} />
+        <Browser url={browserUrl} />
       </Slide>
 
-      <Slide>
-        <Title>Architecture</Title>
-        <Image src={ImgDiagram2} />
-      </Slide>
+      <Architecture />
 
       <Slide>
         <Subtitle>Recap</Subtitle>

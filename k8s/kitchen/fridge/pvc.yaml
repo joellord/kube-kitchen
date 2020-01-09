@@ -7,7 +7,6 @@ metadata:
     section: kitchen
     job: fridge
 spec:
-  storageClassName: manual
   accessModes:
     - ReadWriteMany
   resources:

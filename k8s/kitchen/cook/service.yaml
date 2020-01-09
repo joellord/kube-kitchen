@@ -5,6 +5,7 @@ metadata:
   labels:
     app: kube-kitchen
     section: kitchen
+    description: internal
 spec:
   selector:
     job: cook

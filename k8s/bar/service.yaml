@@ -5,6 +5,7 @@ metadata:
   labels:
     app: kube-kitchen
     section: bar
+    description: service-bar
 spec:
   type: NodePort
   selector:

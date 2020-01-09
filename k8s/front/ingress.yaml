@@ -4,7 +4,8 @@ metadata:
   name: front-ingress
   labels:
     app: kube-kitchen
-    secttion: front
+    section: front
+    job: maitred
 spec:
   backend:
     serviceName: front-service

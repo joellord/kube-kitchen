@@ -41,8 +41,8 @@ const SHOW_NOTES = true;
 const talkProps = {
   title: "Kube Kitchen",
   conference: "JS and Friends",
-  conferenceHashTag: "#event",
-  date: "November 23, 2019",
+  conferenceHashTag: "#jsfriends",
+  date: "January 28, 2020",
   moreInfoUrl: "ezurl.to/kube-kitchen"
 }
 
@@ -157,7 +157,7 @@ function App() {
       <About />
 
       <ImageWithTitle img={ImgWoohoo} title="Twitter Notifications" />
-      <ImageWithTitle img={ImgStickers} title="I Have Stickers" />
+      {/* <ImageWithTitle img={ImgStickers} title="I Have Stickers" /> */}
 
       <ImageWithTitle img={ImgPoutine} title="Grand Opening" notes="
       Back to our subject. We are opening a restaurant. We will serve poutine because... French Canadian heritage.

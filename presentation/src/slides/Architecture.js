@@ -141,7 +141,8 @@ export default class Architecture extends Component {
         this.props.pods.map((pod, i) => {
           let statusColor = "blue";
           if (pod.status === "Running") statusColor = "green";
-          if (pod.status === "Failed") statusColor = "red";
+          if (pod.status === "Failed" || pod.status === "CrashLoopBackOff") statusColor = "red";
+          console.log(pod.status);
           let podBox = new Rectangle(deploymentBox.x + podMargin, deploymentBox.y + titleHeight + (podHeight + podSpacing) * i, podWidth, podHeight, "white", statusColor, 2, "", pod.name);
           podBox.draw();
           return true;
@@ -254,12 +255,6 @@ export default class Architecture extends Component {
         drawArchitecture(this.state.front, this.state.bar, this.state.chef, this.state.cook, this.state.fridge, this.state.pastryChef);
       });
     }, 1000);
-    // socket.onmessage = (msg) => {
-    //   let data = JSON.parse(msg.data);
-    //   console.log(data);
-    //   this.setState(data);
-    //   drawArchitecture(this.state.front, this.state.bar, this.state.chef, this.state.cook, this.state.fridge, this.state.pastryChef);
-    // };
   }
 
   componentWillUnmount() {

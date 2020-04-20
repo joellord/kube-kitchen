@@ -11,7 +11,7 @@ const ws = expressWs(app);
 
 const PORT = process.env.PORT || 8080;
 
-const DEFAULT_PATH = "/home/jlord/Code/kube-kitchen/k8s/";
+const DEFAULT_PATH = "../k8s/";
 
 const shell = os.platform() === "win32" ? "powershell.exe" : "bash";
 let ptyProcess = pty.spawn(shell, [], {

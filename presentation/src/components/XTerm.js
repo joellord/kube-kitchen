@@ -5,7 +5,8 @@ import { FitAddon } from "xterm-addon-fit";
 import "xterm/css/xterm.css";
 
 const protocol = (window.location.protocol === 'https:') ? 'wss://' : 'ws://';
-const port = window.location.port ? `:${window.location.port}` : '';
+// const port = window.location.port ? `:${window.location.port}` : '';
+const port = ":8080";
 const socketUrl = `${protocol}${window.location.hostname}${port}/shell`;
 const socket = new WebSocket(socketUrl);
 

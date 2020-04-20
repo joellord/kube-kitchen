@@ -40,9 +40,9 @@ const SHOW_NOTES = true;
 
 const talkProps = {
   title: "Kube Kitchen",
-  conference: "JS and Friends",
-  conferenceHashTag: "#jsfriends",
-  date: "January 28, 2020",
+  conference: "BocaJS",
+  conferenceHashTag: "#BocaJS",
+  date: "March 3, 2020",
   moreInfoUrl: "ezurl.to/kube-kitchen"
 }
 
@@ -71,7 +71,7 @@ function App() {
        Unfortunately, I don't own the rights to Hell's Kitchen and Gordon Ramsay's pictures
        so I will stick to much more smilier stock images for now.
        " />      
-      <ImageWithTitle title="Kubernetes Hell's Kitchen" img={ImgKitchenLaptop} notes="
+      <ImageWithTitle title={talkProps.title} img={ImgKitchenLaptop} notes="
       So, Kubernetes is a beast. 
       When I first had to learn it, I thought it would be easy. I mean, I can pick up new languages and so on, it's not that complex.
       But this devops thingy was a whole new world to me and it was a complex beast to tame.
@@ -301,7 +301,7 @@ metadata:
       <CodeSlide title="Deployments" lang="yaml">
         {`
 spec:
-  replicas: 1
+  replicas: 3
   selector: 
     matchLabels:
       job: waiter
@@ -483,7 +483,7 @@ metadata:
   name: front-ingress
   labels:
     app: kube-kitchen
-    secttion: front
+    section: front
         `}
       </CodeSlide>
 
@@ -504,7 +504,7 @@ metadata:
   name: front-ingress
   labels:
     app: kube-kitchen
-    secttion: front
+    section: front
 spec:
   backend:
     serviceName: front-service

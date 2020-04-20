@@ -15,7 +15,7 @@ export default class TalkTitle extends Component {
             <Subtitle>Hi, I'm Joel <span role="img" aria-label="Proud Canadian">🇨🇦</span></Subtitle>
             <List className="align-left">
               <li>Developer Advocate @<br/>&nbsp; &nbsp; &nbsp; Red Hat OpenShift</li>
-              <li>Co-organizer @ NomadJs</li>
+              <li>I have stickers!</li>
               <li><span role="img" aria-label="I heart">❤</span> Twitter @joel__lord</li>
             </List>
           </div>

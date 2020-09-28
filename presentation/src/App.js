@@ -10,6 +10,7 @@ import About from "./slides/About";
 import ThankYou from "./slides/ThankYou";
 import Architecture from "./slides/Architecture";
 
+import ImgOdessa from "./assets/odessajs.jpg";
 import ImgKitchenLaptop from "./assets/kitchen-laptop.jpg";
 import ImgRamsay from "./assets/ramsay-hells-kitchen.jpg";
 import ImgBaccara from "./assets/baccara.png";
@@ -40,9 +41,9 @@ const SHOW_NOTES = true;
 
 const talkProps = {
   title: "Kube Kitchen",
-  conference: "BocaJS",
-  conferenceHashTag: "#BocaJS",
-  date: "March 3, 2020",
+  conference: " ",
+  conferenceHashTag: "#kubernetes",
+  date: " ",
   moreInfoUrl: "ezurl.to/kube-kitchen"
 }
 
@@ -60,6 +61,10 @@ function App() {
   return (
     <Deck swipeToChange={false} footer={footer} presenterNotes={SHOW_NOTES}>
       
+      <Slide>
+        <Image src={ImgOdessa} />
+      </Slide>
+
       <ImageWithTitle title={talkProps.title} img={ImgUpscale} notes="
       I will start by telling you this. I am a foodie. I love good food. 
       I love food and food tv shows.
@@ -779,6 +784,13 @@ const COOK_URL = \`http://\${HOST}:\${PORT}\`;
         `}
       </CodeSlide>
 
+      <CodeSlide title="Environment Variables" lang="js" notes="
+      We could've also used the service name.">
+        {`
+const COOK_URL = \`http://cook-service:3000\`;        
+        `}
+      </CodeSlide>
+
       <Architecture notes="
       So we now have this whole architecture. 
       All the networking is done, and if something breaks, it gets automatically repaired.
@@ -1003,6 +1015,11 @@ spec:
       <Slide>
         <Title>Moar K8s!</Title>
         <XTerm />
+      </Slide>
+
+      <Slide>
+        <Title>Full Application</Title>
+        <Browser url={browserUrl} />
       </Slide>
 
       <Slide notes="

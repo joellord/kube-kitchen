@@ -10,7 +10,6 @@ import About from "./slides/About";
 import ThankYou from "./slides/ThankYou";
 import Architecture from "./slides/Architecture";
 
-import ImgOdessa from "./assets/odessajs.jpg";
 import ImgKitchenLaptop from "./assets/kitchen-laptop.jpg";
 import ImgRamsay from "./assets/ramsay-hells-kitchen.jpg";
 import ImgBaccara from "./assets/baccara.png";
@@ -21,7 +20,6 @@ import ImgBuffet from "./assets/buffet.jpg";
 import ImgUpscale from "./assets/upscale.jpg";
 import ImgGrandOpening from "./assets/grandopening.jpg";
 import ImgWoohoo from "./assets/woohoo.gif";
-import ImgStickers from "./assets/ihavestickers.jpg";
 import ImgPoutine from "./assets/poutine.jpg";
 import ImgRent from "./assets/forrent.jpg";
 import ImgLease from "./assets/lease.jpg";
@@ -41,9 +39,9 @@ const SHOW_NOTES = true;
 
 const talkProps = {
   title: "Kube Kitchen",
-  conference: " ",
-  conferenceHashTag: "#kubernetes",
-  date: " ",
+  conference: "iJS",
+  conferenceHashTag: "#iJS",
+  date: "October 27, 2020",
   moreInfoUrl: "ezurl.to/kube-kitchen"
 }
 
@@ -60,10 +58,6 @@ function App() {
 
   return (
     <Deck swipeToChange={false} footer={footer} presenterNotes={SHOW_NOTES}>
-      
-      <Slide>
-        <Image src={ImgOdessa} />
-      </Slide>
 
       <ImageWithTitle title={talkProps.title} img={ImgUpscale} notes="
       I will start by telling you this. I am a foodie. I love good food. 
